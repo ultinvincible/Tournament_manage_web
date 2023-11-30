@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <nav>
+        <a href="">Home</a><br>
+        <a href="tournament_create">Create tournament</a><br>
+        <a href="tournaments">Tournaments</a><br>
+        <a href="players">Players</a><br>
+        <a href="sign_up">Sign up</a>
+    </nav>
+    {% block body %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th></th>
+        {% for header in labels['headers'] %}
+        <th>{{header}}</th>
+        {% endfor %}
+    </tr>
+    {% for item in items %}
+    <tr>
+        <td>{{loop.index}}</td>
+        {% for field in labels['fields'] %}
+        <td>{{item[field]}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>

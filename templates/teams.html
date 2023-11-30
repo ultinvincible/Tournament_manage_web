@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Teams{% endblock %}
+{% block body %}
+<table>
+    <tr>
+        <th>Team</th>
+        <th>Position</th>
+        <th>Ingame</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Rank</th>
+    </tr>
+    {% for team in teams %}
+    {% set teamIndex = loop.index %}
+    {% for pos, player in team.items() %}
+    <tr>
+        <td>
+            {% if loop.index == 1 %}
+            {{teamIndex}}
+            {% else %}
+            {{''}}
+            {% endif %}
+        </td>
+        <td>{{pos}}</td>
+        <td>{{player['ingame']}}</td>
+        <td>{{player['fname']}}</td>
+        <td>{{player['lname']}}</td>
+        <td>{{player['rank']}}</td>
+    </tr>
+    {% endfor %}
+    {% endfor %}
+</table>
+<table>
+{% include '_list.html' %}
+
+</table>
+<form action="/bracket">
+    <label>
+        <input type="radio" name="format" value="single_elimination" checked>
+        Single Elimination
+    </label><br>
+    <label>
+        <input type="radio" name="format" value="double_elimination">
+        Double Elimination
+    </label><br>
+    <label>
+        <input type="radio" name="format" value="single_round_robin">
+        Single Round Robin
+    </label><br>
+    <label>
+        <input type="radio" name="format" value="double_round_robin">
+        Double Round Robin
+    </label><br>
+    <input type="submit" value="Generate Brackets">
+</form>
+{% endblock %}

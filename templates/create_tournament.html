@@ -1,0 +1,40 @@
+{% block title %}Create tournament{% endblock %}
+{% block body %}
+<form action="/create_tournament" method="post">
+    <label>
+        Tournament name<br>
+        <input type="text" id="name" name="name" required>
+    </label><br>
+    <p>What's being played in this tournament?</p>
+    <label>
+        <input type="radio" value="lol" name="subject">
+        League of Legends
+    </label><br>
+    <label>
+        <input type="radio" value="sub1" name="subject">
+        Subject 1
+    </label><br>
+    <label>
+        <input type="radio" value="sub2" name="subject">
+        Subject 2
+    </label><br>
+    <label>
+        <input type="radio" value="other" name="subject">
+        Other:
+    </label>
+    <input type="text" name="subject_other"><br><br>
+    <label for="players">
+        Number of players<br>
+        <input type="number" name="players" required><br>
+    </label><br>
+    <label>
+        Number of teams<br>
+        <input type="number" name="teams" required>
+    </label><br>
+    <label>
+        Description<br>
+        <textarea id="desc" name="desc" rows="10" cols="30"></textarea>
+    </label><br>
+    <input type="submit" value="submit">
+</form>
+{% endblock %}

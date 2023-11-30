@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Sign up{% endblock %}
+{% block body %}
+<form action="/sign_up_submit" method="post">
+    <label>
+        Ingame:
+        <input type='text' name='ingame' required>
+    </label><br>
+    <label>
+        First Name:
+        <input type='text' name='fname' required>
+    </label><br>
+    <label>
+        Last Name:
+        <input type='text' name='lname' required>
+    </label><br>
+    <label>
+        Rank:<br>
+        {% for rank in ranks %}
+        <label>
+            <input type="radio" name="rank" value="{{ rank }}">{{ rank }}<br>
+        </label>
+        {% endfor %}
+    </label><br>
+
+    <label>
+        Division:<br>
+        {% for division in divisions %}
+        <label>
+            <input type="radio" name="div" value="{{ division }}">{{ division }}<br>
+        </label>
+        {% endfor %}
+    </label><br>
+
+    <label>
+        Position 1:<br>
+        {% for position in positions %}
+        <label>
+            <input type="radio" name="pos1" value="{{ position }}">{{ position }}<br>
+        </label>
+        {% endfor %}
+    </label><br>
+
+    <label>
+        Position 2:<br>
+        {% for position in positions %}
+        <label>
+            <input type="radio" name="pos2" value="{{ position }}">{{ position }}<br>
+        </label>
+        {% endfor %}
+    </label><br>
+
+    <input type='submit' value="Submit">
+</form>
+{% endblock %}
